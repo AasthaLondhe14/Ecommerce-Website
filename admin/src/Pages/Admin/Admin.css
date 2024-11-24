@@ -1,0 +1,7 @@
+/* Admin.css */
+.admin {
+    display: flex; /* Ensure Sidebar and content area coexist */
+    width: 100%;   /* Ensure it takes the full width */
+    height: 100vh; /* Ensure full viewport height */
+  }
+  

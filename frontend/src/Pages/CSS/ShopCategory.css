@@ -1,7 +1,8 @@
 .shopcategory-banner{
     display: block;
-    margin: 30px auto;
-    width: 82%;
+    margin: 20px auto;
+    width: 65%;
+    margin-bottom: 100px;
 }
 .shopcategory-indexSort{
     display: flex;
@@ -39,7 +40,7 @@
 @media(max-width:1280px){
     .shopcategory-banner{
         margin: 20px auto;
-        width: 90%;
+        width: 70%;
     }
     .shopcategory-indexSort{
         width: 90%;

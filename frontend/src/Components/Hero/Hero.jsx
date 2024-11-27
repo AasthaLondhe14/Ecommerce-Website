@@ -1,27 +1,41 @@
-import React from 'react'
-import './Hero.css'
-import arrow_icon from '../Assets/arrow.png'
-import hero_image from '../Assets/hero_image.png'
+import React, { useEffect, useRef } from 'react';
+import './Hero.css';
+import slide1 from '../Assets/banner_Men.jpg';
+import slide2 from '../Assets/banner_Men.jpg';
+import slide3 from '../Assets/banner_Men.jpg';
 
 const Hero = () => {
+  const sliderRef = useRef(null);
+  let slideIndex = 0;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        slideIndex = (slideIndex + 1) % 3; // Loop back to the first slide
+        sliderRef.current.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
   return (
-    <div className='hero'>
-        <div className="hero-left">
-            <h2>NEW ARRIVALS ONLY</h2>
-            <div>
-                <div className="hero-hand-icon">
-                    <p>new</p>
-                </div>
-                <p>collections</p>
-                <p>for everyone</p>
-            </div>
+    <div className="hero">
+      <div className="slider-container">
+        <div className="slider" ref={sliderRef}>
+          <div className="slide">
+            <img src={slide1} alt="Slide 1" />
+          </div>
+          <div className="slide">
+            <img src={slide2} alt="Slide 2" />
+          </div>
+          <div className="slide">
+            <img src={slide3} alt="Slide 3" />
+          </div>
         </div>
-    <div className="hero-right">
-        <img src={hero_image} alt=" " />
-
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

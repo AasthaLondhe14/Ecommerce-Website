@@ -1,5 +1,5 @@
 .navbar{
-    display:flex;
+    display: flex;
     justify-content: space-around;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
@@ -7,7 +7,11 @@
 .nav-logo{
     display: flex;
     align-items: center;
-    gap:10px;
+    gap: 10px;
+}
+.nav-logo img{
+    width: 120px; /* Adjust the width to make the logo smaller */
+    height: auto; /* Maintain the aspect ratio */
 }
 .nav-logo p{
     color: #171717;
@@ -20,8 +24,9 @@
     list-style: none;
     gap: 50px;
     color: #626262;
-    font-size: 20x;
+    font-size: 20px;
     font-weight: 500;
+    
 }
 .nav-menu li{
     display: flex;
@@ -79,7 +84,7 @@
         padding: 12px 50px;
     }
     .nav-logo img{
-        width: 40px;
+        width: 40px; /* Adjust for responsive view */
     }
     .nav-logo p{
         font-size: 25px;
@@ -158,7 +163,7 @@
     }
     .nav-menu{
         height: 70px;
-        top:50px;
+        top: 50px;
     }
     .nav-login-cart{
         transform: scale(0.8);

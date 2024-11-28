@@ -8,7 +8,7 @@ const Navbar = () => {
       <img src={navLogo} alt="" className="nav-logo" />
       <span>ADMIN PANEL</span>
       <button onClick={() => window.location.href = 'http://localhost:3000'} className="nav-button">
-        Go to Home
+        LOGOUT
       </button>
     </div>
   );

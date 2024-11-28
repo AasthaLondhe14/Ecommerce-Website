@@ -37,9 +37,9 @@
 }
 
 .cartitems-quantity {
-    width: 50px; /* Reduced width */
+    width: 100px; /* Reduced width */
     height: 40px; /* Reduced height */
-    border: 2px solid #ebebeb;
+    border: 2px solid #fff;
     background: #fff;
     text-align: center; /* Centered the text */
 }
@@ -68,7 +68,7 @@
     height: 58px;
     outline: none;
     border: none;
-    background: #ff5a5a;
+    background: #141313;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -111,6 +111,18 @@
     color: white;
     cursor: pointer;
 }
+.cartitems-quantity-container button {
+    background-color: white; /* White background */
+    border: none; /* Remove border */
+    font-size: 18px; /* Adjust size of + and - symbols */
+    padding: 5px; /* Add some padding for spacing */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.cartitems-quantity-container button:focus {
+    outline: none; /* Remove focus outline */
+}
+
 @media(max-width:1280px){
     .cartitems{
         margin: 60px 50px;

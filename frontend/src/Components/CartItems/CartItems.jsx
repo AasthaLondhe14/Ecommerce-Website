@@ -1,10 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './CartItems.css';
 import { ShopContext } from '../../Context/ShopContext';
 import remove_icon from '../Assets/cart_cross_icon.png';
 
 const CartItems = () => {
     const { getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+    const [promoApplied, setPromoApplied] = useState(false);
+    const [discount, setDiscount] = useState(0);
+    const [promoMessage, setPromoMessage] = useState("");
+
+    const applyPromoCode = (code) => {
+        if (code === "promo123" && !promoApplied) {
+            setDiscount(40);
+            setPromoApplied(true);
+            setPromoMessage("Promo applied successfully!");
+        } else if (promoApplied) {
+            setPromoMessage("Promo code already applied.");
+        } else {
+            setPromoMessage("Invalid promo code.");
+        }
+    };
+
+    const removePromoCode = () => {
+        setDiscount(0);
+        setPromoApplied(false);
+        setPromoMessage("");
+    };
+
+    const totalWithPromo = getTotalCartAmount() - discount;
 
     return (
         <div className='cartitems'>
@@ -33,12 +56,6 @@ const CartItems = () => {
                                         +
                                     </button>
                                     <span className="cartitems-quantity">{cartItems[e.id]}</span>
-                                    <button
-                                        className="cartitems-quantity-btn"
-                                        onClick={() => removeFromCart(e.id)}
-                                    >
-                                        
-                                    </button>
                                 </div>
                                 <p>${e.new_price * cartItems[e.id]}</p>
                                 <img
@@ -64,23 +81,44 @@ const CartItems = () => {
                         </div>
                         <hr />
                         <div className="cartitems-total-item">
+                            <p>Discount</p>
+                            <p>${discount}</p>
+                        </div>
+                        <hr />
+                        <div className="cartitems-total-item">
                             <p>Shipping Fee</p>
                             <p>Free</p>
                         </div>
                         <hr />
                         <div className="cartitems-total-item">
                             <h3>Total</h3>
-                            <h3>${getTotalCartAmount()}</h3>
+                            <h3>${totalWithPromo}</h3>
                         </div>
                     </div>
                     <button>PROCEED TO CHECKOUT</button>
                 </div>
                 <div className="cartitems-promocode">
-                    <p>If you have a PROMO CODE enter it here</p>
+                    <p>If you have a PROMO CODE, enter it here</p>
                     <div className="cartitems-promobox">
-                        <input type="text" placeholder='promo code' />
-                        <button>Submit</button>
+                        <input
+                            type="text"
+                            placeholder='promo code'
+                            id="promo-input"
+                        />
+                        <button
+                            onClick={() =>
+                                applyPromoCode(document.getElementById('promo-input').value)
+                            }
+                        >
+                            Submit
+                        </button>
                     </div>
+                    {promoMessage && <p className="promo-message">{promoMessage}</p>}
+                    {promoApplied && (
+                        <button className="remove-promo-btn" onClick={removePromoCode}>
+                            Remove Promo
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

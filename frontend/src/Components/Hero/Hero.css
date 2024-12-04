@@ -15,12 +15,13 @@
     width: 100%; /* Full width of the viewport */
     overflow: hidden; /* Hide overflowing slides */
     position: relative;
+    margin-top: 5px;
   }
   
   /* Slider */
   .slider {
     display: flex;
-    height: 100%; /* Match container height */
+    height: 60%; /* Match container height */
     width: calc(100% * 3); /* Width for 3 slides */
     transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
   }
@@ -28,7 +29,7 @@
   /* Individual slide */
   .slide {
     flex: 0 0 100%; /* Each slide takes up full width */
-    height: 100%; /* Match container height */
+    height: 80%; /* Match container height */
   }
   
   /* Slide images */
@@ -36,5 +37,6 @@
     width: 100vw; /* Cover the full width of the viewport */
     height: 100vh; /* Cover the full height of the viewport */
     object-fit: cover; /* Ensure the image covers the slide area without distortion */
+    margin:5px;
   }
   

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 import slide1 from '../Assets/banner_Men.jpg';
-import slide2 from '../Assets/banner_Men.jpg';
-import slide3 from '../Assets/banner_Men.jpg';
+import slide2 from '../Assets/main111.png';
+import slide3 from '../Assets/main112.png';
 
 const Hero = () => {
   const sliderRef = useRef(null);
